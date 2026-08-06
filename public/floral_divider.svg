@@ -1,0 +1,22 @@
+<svg width="600" height="200" viewBox="0 0 600 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Decorative Floral & Arch SVG motif -->
+  <g opacity="0.85">
+    <!-- Center Crescent & Floral Arch -->
+    <path d="M300 30 C 260 30, 240 60, 240 90 C 240 120, 260 150, 300 150 C 340 150, 360 120, 360 90 C 360 60, 340 30, 300 30 Z M300 40 C 330 40, 348 68, 348 90 C 348 112, 330 140, 300 140 C 270 140, 252 112, 252 90 C 252 68, 270 40, 300 40 Z" fill="url(#goldGrad)"/>
+    <!-- Left Floral Swirls -->
+    <path d="M 230 90 C 180 80, 140 100, 90 90 C 60 84, 40 70, 10 75 C 50 110, 120 120, 230 95 Z" fill="#6E7458" opacity="0.6"/>
+    <!-- Right Floral Swirls -->
+    <path d="M 370 90 C 420 80, 460 100, 510 90 C 540 84, 560 70, 590 75 C 550 110, 480 120, 370 95 Z" fill="#6E7458" opacity="0.6"/>
+    <!-- Leaves and Dots -->
+    <circle cx="300" cy="90" r="4" fill="#B8860B"/>
+    <circle cx="280" cy="90" r="3" fill="#D4AF37"/>
+    <circle cx="320" cy="90" r="3" fill="#D4AF37"/>
+  </g>
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B8860B" />
+      <stop offset="50%" stop-color="#F3E5AB" />
+      <stop offset="100%" stop-color="#996515" />
+    </linearGradient>
+  </defs>
+</svg>

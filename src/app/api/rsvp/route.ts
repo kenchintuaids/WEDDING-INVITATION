@@ -4,8 +4,8 @@ import { NextRequest, NextResponse } from 'next/server';
 const notificationRecipients = [
   'yasmeenovias@gmail.com',
   'zoyaovias@gmail.com',
-  'omerovias@gmail.com',
   'oviasm@gmail.com',
+  'omerovias@gmail.com',
 ];
 
 function escapeHtml(value: string) {
@@ -22,14 +22,23 @@ export async function POST(request: NextRequest) {
     const body = (await request.json()) as Partial<{
       name: string;
       number: string;
+      additionalGuests: number;
     }>;
 
     const name = body.name?.trim();
     const number = body.number?.trim();
+    const additionalGuests = Number(body.additionalGuests ?? 0);
 
     if (!name || !number) {
       return NextResponse.json(
         { error: 'Name and number are required.' },
+        { status: 400 }
+      );
+    }
+
+    if (!Number.isInteger(additionalGuests) || additionalGuests < 0) {
+      return NextResponse.json(
+        { error: 'Additional guests must be 0 or more.' },
         { status: 400 }
       );
     }
@@ -66,6 +75,7 @@ export async function POST(request: NextRequest) {
       dateStyle: 'medium',
       timeStyle: 'short',
     });
+    const additionalGuestsText = additionalGuests === 0 ? 'No additional guests' : `+${additionalGuests}`;
 
     await Promise.all(
       notificationRecipients.map((recipient) =>
@@ -79,6 +89,7 @@ export async function POST(request: NextRequest) {
             '',
             `Name: ${name}`,
             `Number: ${number}`,
+            `Additional Guests: ${additionalGuestsText}`,
             `Submitted At: ${submittedAt}`,
           ].join('\n'),
           html: `
@@ -93,6 +104,10 @@ export async function POST(request: NextRequest) {
                 <tr>
                   <td style="padding: 8px 0; font-weight: 700;">Number</td>
                   <td style="padding: 8px 0;">${escapeHtml(number)}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 8px 0; font-weight: 700;">Additional Guests</td>
+                  <td style="padding: 8px 0;">${escapeHtml(additionalGuestsText)}</td>
                 </tr>
                 <tr>
                   <td style="padding: 8px 0; font-weight: 700;">Submitted At</td>

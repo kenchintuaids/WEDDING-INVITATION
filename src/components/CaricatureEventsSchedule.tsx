@@ -7,31 +7,37 @@ import { Clock, MapPin, Navigation, Sparkles } from 'lucide-react';
 const scheduleEvents = [
   {
     id: 'nikah',
-    title: 'Sacred Nikah',
+    title: 'Nikah',
     subtitle: 'Solemnization of marriage under divine blessings',
-    date: 'Sat - Sept 26, 2026',
-    time: '04:00 PM Onwards',
-    venue: 'iLeaf Grand Banguet Vashi',
+    date: 'Saturday - September 26, 2026',
+    time: 'After Maghrib Prayer at 6:45 PM',
+    venue: 'iLeaf Grand Banquet, Vashi',
     mapLink: 'https://maps.app.goo.gl/nzsce669Cjb2aL1RA',
     caricature: '/Nikah.jpg',
     themeBg: 'from-[#1A2218] via-[#2A3428] to-[#121811]', // Royal dark starry night
     textColor: 'text-[#FAF8F5]',
-    isDark: true,
     accentColor: 'text-gold-gradient',
     borderColor: 'border-[#B8860B]/40',
+    badgeClass: 'bg-white/20 text-[#FAF8F5] backdrop-blur-md border-white/30',
+    iconColor: 'text-[#B8860B]',
+    buttonClass: 'bg-gradient-to-r from-[#B8860B] to-[#D4AF37] text-white shadow-md hover:shadow-xl',
   },
   {
     id: 'valima',
-    title: 'Grand Valima',
+    title: 'Valima',
     subtitle: 'Celebratory wedding reception & royal feast',
-    date: 'Sun - Sept 27, 2026',
-    time: '05:00 PM - 11:00 PM',
-    venue: 'CIDCO Vashi Audi',
+    date: 'Sunday - September 27, 2026',
+    time: '7:00 PM Onwards',
+    venue: 'CIDCO Auditorium And Convention Centre, Vashi',
     mapLink: 'https://maps.app.goo.gl/rRCcQZ1sY9KySJWi9',
     caricature: '/Valima.jpg',
-    themeBg: 'from-[#F2F5F0] via-white to-[#E8EFE5]',
-    accentColor: 'text-[#6E7458]',
-    borderColor: 'border-[#6E7458]/30',
+    themeBg: 'from-[#FFF3BF] via-[#D4AF37] to-[#9B6A10]',
+    textColor: 'text-[#3E2B0B]',
+    accentColor: 'text-[#4B3208]',
+    borderColor: 'border-[#D4AF37]/70',
+    badgeClass: 'bg-[#FFF8DC]/60 text-[#4B3208] backdrop-blur-md border-[#8C5E08]/25',
+    iconColor: 'text-[#5A3F19]',
+    buttonClass: 'bg-gradient-to-r from-[#4B3208] to-[#7A4E08] text-[#FFF7D7] shadow-lg hover:shadow-xl hover:from-[#3A2606] hover:to-[#6C4306]',
   },
 ];
 
@@ -39,14 +45,14 @@ export default function CaricatureEventsSchedule() {
   return (
     <section id="events-schedule" className="py-20 px-4 max-w-4xl mx-auto scroll-mt-24">
       {/* Section Header */}
-      <div className="text-center space-y-3 mb-16">
-        <span className="font-heading text-xs tracking-widest text-[#B8860B] uppercase">
+      <div className="text-center mb-16">
+        <span className="block mb-4 font-heading text-sm md:text-base tracking-widest text-[#B8860B] uppercase">
           Ceremonies & Functions
         </span>
-        <h2 className="font-script text-5xl md:text-6xl text-[#6E7458]">
+        <h2 className="font-script text-5xl md:text-6xl leading-[1.15] text-[#6E7458]">
           Wedding Schedule
         </h2>
-        <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-[#B8860B] to-transparent mx-auto" />
+        <div className="mt-4 w-16 h-0.5 bg-gradient-to-r from-transparent via-[#B8860B] to-transparent mx-auto" />
       </div>
 
       {/* Stacked Caricature Cards */}
@@ -59,12 +65,12 @@ export default function CaricatureEventsSchedule() {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.8, delay: idx * 0.2 }}
             className={`relative rounded-3xl overflow-hidden shadow-2xl border ${event.borderColor} bg-gradient-to-br ${event.themeBg} ${
-              event.isDark ? 'text-[#FAF8F5]' : 'text-[#2E2E2E]'
+              event.textColor
             }`}
           >
-            <div className="grid grid-cols-1 md:grid-cols-12 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-12 items-stretch">
               {/* Caricature Art Illustration Column */}
-              <div className="md:col-span-5 relative h-72 md:h-[420px] w-full overflow-hidden">
+              <div className="md:col-span-5 relative min-h-[420px] md:min-h-[520px] w-full overflow-hidden">
                 <Image
                   src={event.caricature}
                   alt={event.title}
@@ -75,27 +81,29 @@ export default function CaricatureEventsSchedule() {
               </div>
 
               {/* Event Details Content Column */}
-              <div className="md:col-span-7 p-6 md:p-10 space-y-6">
-                <div className="space-y-2">
-                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-heading uppercase tracking-widest bg-white/20 backdrop-blur-md border border-white/30">
-                    <Sparkles className="w-3.5 h-3.5 text-[#B8860B]" />
-                    {event.date}
-                  </span>
-                  <h3 className={`font-script text-4xl md:text-5xl font-normal ${event.accentColor}`}>
+              <div className="md:col-span-7 p-6 md:p-10 space-y-8">
+                <div>
+                  <div className="mb-6">
+                    <span className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-base md:text-lg font-heading uppercase tracking-widest border ${event.badgeClass}`}>
+                      <Sparkles className={`w-4 h-4 ${event.iconColor}`} />
+                      {event.date}
+                    </span>
+                  </div>
+                  <h3 className={`mb-3 pt-1 pb-2 font-script text-5xl md:text-6xl leading-[1.25] font-normal ${event.accentColor}`}>
                     {event.title}
                   </h3>
-                  <p className="font-body text-xs md:text-sm opacity-80 italic">
+                  <p className="font-body text-sm md:text-base leading-relaxed opacity-80 italic">
                     {event.subtitle}
                   </p>
                 </div>
 
-                <div className="space-y-3 pt-2 font-body text-sm">
-                  <div className="flex items-center gap-3">
-                    <Clock className="w-4 h-4 text-[#B8860B] shrink-0" />
+                <div className="space-y-4 pt-1 font-body text-base md:text-lg">
+                  <div className="flex items-center gap-3.5">
+                    <Clock className={`w-5 h-5 ${event.iconColor} shrink-0`} />
                     <span>{event.time}</span>
                   </div>
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-[#B8860B] shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-3.5">
+                    <MapPin className={`w-5 h-5 ${event.iconColor} shrink-0 mt-0.5`} />
                     <span>{event.venue}</span>
                   </div>
                 </div>
@@ -105,9 +113,9 @@ export default function CaricatureEventsSchedule() {
                     href={event.mapLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 py-3 px-6 rounded-full bg-gradient-to-r from-[#B8860B] to-[#D4AF37] text-white font-heading text-xs uppercase tracking-widest shadow-md hover:scale-105 active:scale-95 transition-all"
+                    className={`inline-flex items-center gap-2.5 py-3.5 px-7 rounded-full font-heading text-sm uppercase tracking-widest hover:scale-105 active:scale-95 transition-all ${event.buttonClass}`}
                   >
-                    <Navigation className="w-4 h-4" />
+                    <Navigation className="w-5 h-5" />
                     Get Directions
                   </a>
                 </div>

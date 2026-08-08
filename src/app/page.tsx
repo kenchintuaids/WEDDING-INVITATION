@@ -15,13 +15,25 @@ import Image from 'next/image';
 export default function Home() {
   const [envelopeOpened, setEnvelopeOpened] = useState(false);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
+  const openInvitation = () => {
+    scrollToTop();
+    setEnvelopeOpened(true);
+    requestAnimationFrame(scrollToTop);
+  };
+
   return (
     <SmoothScroll>
       <main className="relative min-h-screen bg-[#FAF8F5] text-[#2E2E2E] selection:bg-[#B8860B]/20">
         {/* Step 1: Interactive Wax Seal Envelope Cover Screen */}
         {!envelopeOpened && (
           <InteractiveEnvelope
-            onOpen={() => setEnvelopeOpened(true)}
+            onOpen={openInvitation}
             brideName="Zoya Ovias"
             groomName="Mohammed Ayaan"
           />
@@ -41,9 +53,9 @@ export default function Home() {
         <Hero />
 
         {/* Save The Date Gold Pill Header & Countdown Timer */}
-        <div className="text-center pt-8">
-          <div className="inline-block py-2.5 px-8 rounded-full bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] text-white shadow-xl">
-            <span className="font-heading text-xs uppercase tracking-widest block opacity-90">
+        <div className="px-4 text-center pt-8">
+          <div className="mx-auto flex h-20 w-full max-w-[28rem] flex-col items-center justify-center rounded-full bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] px-6 text-white shadow-xl">
+            <span className="font-heading text-sm uppercase tracking-widest block opacity-90">
               Save The Date
             </span>
             <span className="font-script text-2xl md:text-3xl">

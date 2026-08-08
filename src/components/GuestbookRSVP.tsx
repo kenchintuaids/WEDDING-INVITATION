@@ -2,20 +2,26 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Mail, Phone, Send, User } from 'lucide-react';
+import { CheckCircle2, Mail, Minus, Phone, Plus, Send, User, Users } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 interface RSVPSubmission {
   name: string;
   number: string;
+  additionalGuests: number;
 }
 
 export default function GuestbookRSVP() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const [additionalGuests, setAdditionalGuests] = useState(0);
   const [submitted, setSubmitted] = useState(false);
   const [isSending, setIsSending] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  const updateAdditionalGuests = (nextValue: number) => {
+    setAdditionalGuests(Math.max(0, nextValue));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,6 +33,7 @@ export default function GuestbookRSVP() {
     const submission: RSVPSubmission = {
       name: name.trim(),
       number: number.trim(),
+      additionalGuests,
     };
 
     try {
@@ -46,6 +53,7 @@ export default function GuestbookRSVP() {
 
       setName('');
       setNumber('');
+      setAdditionalGuests(0);
       setSubmitted(true);
 
       confetti({
@@ -99,7 +107,7 @@ export default function GuestbookRSVP() {
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
                 <label className="block text-xs font-heading uppercase tracking-wider text-[#6E7458] mb-1">
                   Name
@@ -131,6 +139,35 @@ export default function GuestbookRSVP() {
                     onChange={(e) => setNumber(e.target.value)}
                     className="w-full pl-11 pr-4 py-3 rounded-xl bg-white/80 border border-[#B8860B]/20 text-sm focus:outline-none focus:border-[#B8860B] font-body"
                   />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-xs font-heading uppercase tracking-wider text-[#6E7458] mb-1">
+                  Additional Guests
+                </label>
+                <div className="flex h-[46px] items-center rounded-xl bg-white/80 border border-[#B8860B]/20 overflow-hidden">
+                  <button
+                    type="button"
+                    aria-label="Remove additional guest"
+                    onClick={() => updateAdditionalGuests(additionalGuests - 1)}
+                    disabled={additionalGuests === 0}
+                    className="h-full w-12 flex items-center justify-center text-[#B8860B] disabled:text-[#B8860B]/30 disabled:cursor-not-allowed hover:bg-[#B8860B]/10 transition-colors"
+                  >
+                    <Minus className="w-4 h-4" />
+                  </button>
+                  <div className="flex flex-1 items-center justify-center gap-2 border-x border-[#B8860B]/15 font-body text-sm text-[#2E2E2E]">
+                    <Users className="w-4 h-4 text-[#B8860B]" />
+                    <span>{additionalGuests === 0 ? 'No +1' : `+${additionalGuests}`}</span>
+                  </div>
+                  <button
+                    type="button"
+                    aria-label="Add additional guest"
+                    onClick={() => updateAdditionalGuests(additionalGuests + 1)}
+                    className="h-full w-12 flex items-center justify-center text-[#B8860B] hover:bg-[#B8860B]/10 transition-colors"
+                  >
+                    <Plus className="w-4 h-4" />
+                  </button>
                 </div>
               </div>
             </div>

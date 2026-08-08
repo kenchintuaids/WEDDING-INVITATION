@@ -51,7 +51,7 @@ export default function Navigation() {
             href="#hero"
             className="font-pinyon text-2xl md:text-3xl text-gold-gradient font-normal tracking-wide flex items-center gap-2"
           >
-            <span>Zoya & Ayaan</span>
+            <span className="font-bold">Zoya & Ayaan</span>
             <Heart className="w-4 h-4 text-[#B8860B] fill-[#B8860B]/30 inline" />
           </a>
 

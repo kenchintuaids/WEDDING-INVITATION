@@ -40,7 +40,11 @@ export default function InteractiveEnvelope({
           initial={{ opacity: 0, y: -24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease: 'easeOut' }}
-          className="absolute top-0 left-0 right-0 h-40 md:h-56 pointer-events-none opacity-80"
+          className="absolute top-0 left-0 right-0 h-64 md:h-72 pointer-events-none opacity-100"
+          style={{
+            WebkitMaskImage: 'radial-gradient(ellipse at top, #000 58%, transparent 100%)',
+            maskImage: 'radial-gradient(ellipse at top, #000 58%, transparent 100%)',
+          }}
         >
           <Image
             src="/hero_floral_top_1785851827947.jpg"
@@ -49,7 +53,7 @@ export default function InteractiveEnvelope({
             className="object-cover object-top mix-blend-multiply"
             priority
           />
-          <div className="absolute bottom-0 inset-x-0 h-14 bg-gradient-to-t from-[#FAF8F5] to-transparent" />
+          <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-[#FAF8F5]/80 to-transparent" />
         </motion.div>
 
         <div className="relative z-10 w-full max-w-4xl px-2 pt-20 md:pt-24">
@@ -67,31 +71,28 @@ export default function InteractiveEnvelope({
 
             <div className="relative p-8 md:p-12 lg:p-16 flex flex-col items-center text-center space-y-8">
               <div className="space-y-3 max-w-2xl">
-                <p className="font-heading text-xs md:text-sm uppercase tracking-[0.35em] text-[#6E7458]">
-                  Bismillah
-                </p>
-                <p className="font-body italic text-sm md:text-base text-[#2E2E2E]/75">
+                <p className="font-body italic text-base md:text-lg text-[#2E2E2E]/75">
                   In the name of Allah, the Most Gracious, the Most Merciful
                 </p>
               </div>
 
               <div className="space-y-3 max-w-3xl">
-                <p className="font-heading text-[0.65rem] md:text-xs uppercase tracking-[0.35em] text-[#B8860B]">
+                <p className="font-heading text-xs md:text-sm uppercase tracking-[0.35em] text-[#B8860B]">
                   Requesting your presence
                 </p>
                 <h2 className="inline-flex items-center justify-center rounded-full border border-[#D8C08A]/55 bg-white/70 px-6 py-3 font-heading text-3xl md:text-5xl uppercase tracking-[0.18em] text-[#8C6A18] shadow-[0_12px_30px_rgba(184,134,11,0.14)] backdrop-blur-sm">
                   You&apos;re Invited
                 </h2>
-                <p className="font-body text-sm md:text-base text-[#2E2E2E]/80 max-w-xl mx-auto leading-relaxed">
-                  Join us as we celebrate the wedding of <span className="font-pinyon text-[1.15em] leading-none">{brideName}</span> and <span className="font-pinyon text-[1.15em] leading-none">{groomName}</span> with family, blessings, and joy.
+                <p className="font-body text-base md:text-xl text-[#2E2E2E]/80 max-w-xl mx-auto leading-relaxed">
+                  Join us as we celebrate the wedding of <span className="font-pinyon text-[1.15em] leading-none font-semibold"><br></br>{brideName}</span>  and  <span className="font-pinyon text-[1.15em] leading-none font-semibold">{groomName}</span>.
                 </p>
               </div>
 
               <div className="flex flex-wrap justify-center gap-3 pt-1">
-                <div className="rounded-full border border-[#B8860B]/20 bg-white/70 px-4 py-2 text-[0.65rem] md:text-xs uppercase tracking-[0.28em] text-[#6E7458]">
+                <div className="rounded-full border border-[#B8860B]/20 bg-white/70 px-4 py-2 text-xs md:text-sm uppercase tracking-[0.28em] text-[#6E7458]">
                   Nikah
                 </div>
-                <div className="rounded-full border border-[#B8860B]/20 bg-white/70 px-4 py-2 text-[0.65rem] md:text-xs uppercase tracking-[0.28em] text-[#6E7458]">
+                <div className="rounded-full border border-[#B8860B]/20 bg-white/70 px-4 py-2 text-xs md:text-sm uppercase tracking-[0.28em] text-[#6E7458]">
                   Valima
                 </div>
               </div>
@@ -103,7 +104,7 @@ export default function InteractiveEnvelope({
               >
                 <div className="absolute inset-1 rounded-full border border-[#A27D45]/40" />
                 <div className="w-14 h-14 rounded-full border border-[#8F6A34]/45 flex items-center justify-center bg-[#F7E9C4]/70">
-                  <span className="font-heading font-bold text-xs uppercase text-[#5A3F19] tracking-[0.3em]">
+                  <span className="font-heading font-bold text-sm uppercase text-[#5A3F19] tracking-[0.3em]">
                     Open
                   </span>
                 </div>
@@ -118,7 +119,7 @@ export default function InteractiveEnvelope({
           transition={{ repeat: Infinity, duration: 2 }}
           className="mt-8 text-center space-y-1 relative z-10"
         >
-          <p className="font-heading text-xs uppercase tracking-widest text-[#6E7458]/80">
+          <p className="font-heading text-sm md:text-base uppercase tracking-widest text-[#6E7458]/80">
             Tap the seal to open your invitation
           </p>
         </motion.div>

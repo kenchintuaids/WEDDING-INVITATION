@@ -49,11 +49,11 @@ export default function Timeline() {
             </div>
 
             {/* Date Tag Left (Desktop view) */}
-            <div className="hidden md:block absolute -left-36 top-1 text-right w-28">
-              <span className="font-heading text-xs uppercase tracking-widest text-[#6E7458] font-bold block">
+            <div className="hidden md:block absolute -left-36 top-1 text-right w-36">
+              <span className="font-heading text-sm md:text-base uppercase tracking-widest text-[#6E7458] font-bold block">
                 {event.date}
               </span>
-              <span className="font-body text-xs text-[#2E2E2E]/60">
+              <span className="font-body text-sm text-[#2E2E2E]/60">
                 {event.time}
               </span>
             </div>
@@ -61,7 +61,7 @@ export default function Timeline() {
             {/* Event Card Content */}
             <div className={`glass-card p-6 rounded-2xl border-l-4 ${event.color} shadow-lg hover:shadow-xl transition-shadow`}>
               <div className="md:hidden mb-2">
-                <span className="font-heading text-xs text-[#B8860B] uppercase tracking-widest font-bold">
+                <span className="font-heading text-sm text-[#B8860B] uppercase tracking-widest font-bold">
                   {event.date} &bull; {event.time}
                 </span>
               </div>

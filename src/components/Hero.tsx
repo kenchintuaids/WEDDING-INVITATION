@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-start pt-48 md:pt-56 pb-16 px-4 overflow-hidden text-center"
+      className="relative min-h-screen flex flex-col items-center justify-start pt-60 md:pt-72 pb-16 px-4 overflow-hidden text-center"
     >
       {/* Background Watercolor Floral Illumination Accent */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5] via-[#FAF8F5]/80 to-[#FAF8F5] pointer-events-none z-0" />
@@ -17,7 +17,11 @@ export default function Hero() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="absolute top-0 left-0 right-0 h-44 md:h-52 pointer-events-none z-10 opacity-90 overflow-hidden"
+        className="absolute top-0 left-0 right-0 h-64 md:h-72 pointer-events-none z-10 opacity-100 overflow-hidden"
+        style={{
+          WebkitMaskImage: 'radial-gradient(ellipse at top, #000 58%, transparent 100%)',
+          maskImage: 'radial-gradient(ellipse at top, #000 58%, transparent 100%)',
+        }}
       >
         <Image
           src="/hero_floral_top_1785851827947.jpg"
@@ -27,7 +31,7 @@ export default function Hero() {
           priority
         />
         {/* Soft fade out at bottom of floral banner */}
-        <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-[#FAF8F5] to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-[#FAF8F5]/80 to-transparent" />
       </motion.div>
 
       {/* Hero Content Container (Padded top so text starts completely below the floral banner) */}
@@ -39,9 +43,6 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="space-y-1.5"
         >
-          <p className="font-heading text-2xl md:text-3xl text-[#6E7458] tracking-widest uppercase font-semibold">
-            بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
-          </p>
           <p className="text-sm md:text-base font-body italic text-[#2E2E2E] font-medium">
             In the name of all the most beneficent and merciful.
           </p>
@@ -92,7 +93,7 @@ export default function Hero() {
               Daughter of Mr. Ovias Siraj and Mrs. Yasmeen Ovias
             </p>
             <p>Paternal Grand D/O Late Siraj Haji</p>
-            <p>Maternal Grand D/O Mul Answer Basha</p>
+            <p>Maternal Grand D/O Anwar Basha Mooktini</p>
           </div>
         </motion.div>
 
@@ -103,7 +104,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="py-1"
         >
-          <span className="font-script text-5xl md:text-6xl text-[#B8860B] block">
+          <span className="font-script text-6xl md:text-7xl text-[#8A6110] font-semibold drop-shadow-[0_3px_8px_rgba(184,134,11,0.45)] block leading-none">
             &
           </span>
         </motion.div>
@@ -122,6 +123,8 @@ export default function Hero() {
             <p className="text-[#6E7458] font-semibold">
               Son of Dr. Atiq Mohammed Yusuf Hakim and Sabiha Atiq Hakim
             </p>
+            <p>Paternal Grand S/O Late Mohammed Yusuf A. Hakim </p>
+            <p>Maternal Grand S/O Mr. Zaheer A. Khan</p>
           </div>
         </motion.div>
 
@@ -149,24 +152,14 @@ export default function Hero() {
         >
           <a
             href="#events-schedule"
-            className="inline-block py-3.5 px-8 rounded-full bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] text-white font-heading text-xs uppercase tracking-widest shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-[#FFF]/40"
+            className="mx-auto flex h-20 w-full max-w-[28rem] items-center justify-center rounded-full bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] px-6 text-center font-heading text-sm md:text-base uppercase tracking-widest text-white shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 border border-[#FFF]/40"
           >
-            Explore Ceremonies
+            Explore Ceremonies & Schedule
           </a>
         </motion.div>
       </div>
 
-      {/* Floating Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-[#6E7458]/60"
-      >
-        <span className="font-heading text-xs tracking-widest uppercase block mb-1">Scroll Down</span>
-        <div className="w-5 h-8 rounded-full border-2 border-[#6E7458]/40 mx-auto flex items-start justify-center p-1">
-          <div className="w-1 h-2 bg-[#B8860B] rounded-full animate-bounce" />
-        </div>
-      </motion.div>
+
     </section>
   );
 }

@@ -33,7 +33,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: 'A~Z ki Shaadi',
+  title: 'Zoya & Ayaans Wedding Invitation',
   description: 'Mr. & Mrs. Ovias Siraj solicit your esteemed presence with your family on the occasion of the Wedding of Zoya Ovias & Mohammed Ayaan.',
   keywords: ['Wedding Invitation', 'Islamic Wedding', 'Nikah', 'Valima', 'Zoya Ovias', 'Mohammed Ayaan'],
   icons: {
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     apple: '/icon.png',
   },
   openGraph: {
-    title: 'A~Z ki Shaadi',
+    title: 'Zoya & Ayaans Wedding Invitation',
     description: 'We request your blessings and presence at our wedding ceremonies.',
     type: 'website',
   },

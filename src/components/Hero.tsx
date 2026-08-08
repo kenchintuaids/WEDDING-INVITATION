@@ -44,7 +44,7 @@ export default function Hero() {
           className="space-y-1.5"
         >
           <p className="text-sm md:text-base font-body italic text-[#2E2E2E] font-medium">
-            In the name of all the most beneficent and merciful.
+            In the name of Allah the most beneficent and merciful.
           </p>
         </motion.div>
 

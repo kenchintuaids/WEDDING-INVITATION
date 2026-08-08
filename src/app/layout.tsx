@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Great_Vibes, Lora, Pinyon_Script } from 'next/font/google';
 import './globals.css';
+import { Analytics } from "@vercel/analytics/next"
 
 // Font definitions
 const cormorant = Cormorant_Garamond({

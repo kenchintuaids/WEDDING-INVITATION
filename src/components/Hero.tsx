@@ -56,7 +56,7 @@ export default function Hero() {
           className="space-y-1 py-1"
         >
           <h3 className="font-heading text-2xl md:text-4xl text-[#6E7458] font-bold tracking-wide">
-            Mr. & Mrs. Ovias Siraj
+            Mrs. & Mr.  Ovias Siraj
           </h3>
           <p className="font-body text-base md:text-lg text-[#2E2E2E]/90 max-w-xl mx-auto leading-relaxed font-medium">
             Solicit your esteemed presence with your family on the occasion of the
@@ -121,7 +121,7 @@ export default function Hero() {
           </h1>
           <div className="font-body text-xs md:text-sm text-[#2E2E2E]/90 leading-relaxed max-w-lg mx-auto font-medium">
             <p className="text-[#6E7458] font-semibold">
-              Son of Dr. Atiq Mohammed Yusuf Hakim and Sabiha Atiq Hakim
+              Son of Dr. Atiq Mohammed Yusuf Hakim and Mrs. Sabiha Atiq Hakim
             </p>
             <p>Paternal Grand S/O Late Mohammed Yusuf A. Hakim </p>
             <p>Maternal Grand S/O Mr. Zaheer A. Khan</p>

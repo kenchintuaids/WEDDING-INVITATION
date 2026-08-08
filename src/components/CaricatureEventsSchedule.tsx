@@ -28,7 +28,7 @@ const scheduleEvents = [
     subtitle: 'Celebratory wedding reception & royal feast',
     date: 'Sunday - September 27, 2026',
     time: '7:00 PM Onwards',
-    venue: 'CIDCO Auditorium And Convention Centre 1st Floor, Vashi',
+    venue: 'CIDCO Auditorium And Convention Centre - 1st Floor, Vashi',
     mapLink: 'https://maps.app.goo.gl/rRCcQZ1sY9KySJWi9',
     caricature: '/Valima.jpg',
     themeBg: 'from-[#FFF3BF] via-[#D4AF37] to-[#9B6A10]',
